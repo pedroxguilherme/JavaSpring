@@ -4,14 +4,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
-record Person(String name, int age) {
+record Person(String name, int age, Address adress) {
 	
 	
 	
 	
 };
 
-record Adress(String street, String city) {
+record Address(String street, String city) {
 		
 }
 
@@ -36,18 +36,23 @@ return 25;
 @Bean
 public Person person(){		
 	
-	return new Person("Garry", 23);
+	return new Person("Garry", 23, address());
 	
 }
 
 @Bean
-public Adress adress() {
+public Address address() {
 	
-	return new Adress("Av. Paulista","São Paulo");
+	return new Address("Av. Paulista","São Paulo");
 	
 	
 }
-
+@Bean(name = "person3")
+public Person person2(){		
+	
+	return new Person("Garry", 23, new Address("Centro", "Franco da Rocha"));
+	
+}
 
 
 
