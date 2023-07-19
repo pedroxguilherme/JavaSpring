@@ -1,13 +1,10 @@
 package com.in28minutes.learnspringframework;
 
-import com.in28minutes.learnspringframework.game.GamingConsole;
-
-
 public class GameRunner {
 	
 	GamingConsole game;
 	
-	public GameRunner(GamingConsole game) {
+	GameRunner(GamingConsole game) {
 		
 		this.game = game;	
 	}
@@ -19,6 +16,8 @@ public class GameRunner {
 		this.game.left();
 		this.game.right();
 	}
+
+	
 	
 	
 	
