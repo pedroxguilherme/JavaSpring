@@ -35,8 +35,12 @@ public String HelloHtml() {
 	return sb.toString();
 }
 
-
+@RequestMapping("say-hello-jsp")
+public String HelloJsp() {
 	
+	
+	return "sayHello";
+}	
 	
 	
 	
