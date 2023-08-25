@@ -8,6 +8,16 @@
 <body>
 
     <h1>Welcome to Login page ${name}</h1>
+    <form method="post">
+    Name:<input type="text" name = name>
+    password:<input type="password" name ="password">
+    <input type="submit">
+    
+    </form>
+    
+    
+    
+    
     
 </body>
 </html>

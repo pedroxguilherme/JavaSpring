@@ -44,13 +44,9 @@ public String HelloJsp() {
 	return "sayHello";
 }	
 
-@RequestMapping("login")
-public String GotologinJsp(@RequestParam String name, ModelMap model) {
-	model.put("name", name);
-	logger.debug("Name:", name);
-	logger.info("Printing in info level");
-	return "login";
-}	
+
+
+		
 		
 	
 	
