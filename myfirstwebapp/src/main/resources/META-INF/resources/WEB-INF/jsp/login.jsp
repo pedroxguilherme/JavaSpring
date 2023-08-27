@@ -6,8 +6,8 @@
 <title>Login Page</title>
 </head>
 <body>
-
-	<h1>Welcome to Login page ${name}</h1>
+    <div class="container">
+	<h1>Login page</h1>
 	
 	
 	
@@ -18,7 +18,7 @@
 
 	</form>
 
-
+   </div>
 
 
 

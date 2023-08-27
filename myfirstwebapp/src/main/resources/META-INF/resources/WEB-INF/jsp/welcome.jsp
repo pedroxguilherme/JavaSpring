@@ -6,11 +6,11 @@
 <title>Welcome Page</title>
 </head>
 <body>
-
-	<div>Welcome ${name}</div>
+    <div class="container">
+	<h1>Welcome ${name}</h1>
     <div><a href="todo-list">Manage</a> your todos</div>
-
-
+   </div>
+  
 
 
 </body>
