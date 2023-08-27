@@ -8,7 +8,7 @@
 <body>
 
 	<div>Welcome ${name}</div>
-
+    <div><a href="todo-list">Manage</a> your todos</div>
 
 
 
