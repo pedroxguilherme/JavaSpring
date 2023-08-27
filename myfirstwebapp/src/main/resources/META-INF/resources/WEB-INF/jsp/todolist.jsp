@@ -7,7 +7,10 @@
 </head>
 <body>
 
-	<div>Welcome ${name}</div>
+	<div>All todos ${todos}</div>
+	
+	
+	
 
 
 

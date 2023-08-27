@@ -12,21 +12,38 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoginController {
 	
-private Logger logger = LoggerFactory.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(getClass());
+	private AutheticationService autheticationService;	
+	
+	public LoginController(AutheticationService autheticationService) {
+		super();
+		this.autheticationService = autheticationService;
+	}
+	
+	
+	
+
 
 
 
 @RequestMapping(value="login", method=RequestMethod.POST)
 public String Gotowelcome(@RequestParam String name,@RequestParam String password ,ModelMap model) {
+	
+	
+	if(autheticationService.authenticate(name, password))
+	{	
 	model.put("name", name);
 	model.put("password", password);
 	logger.debug("Name:", name);
-	
-	
-	
 	logger.info("Printing in info level");
 	
 	return "welcome";
+	}
+	
+	model.put("errorMessage", "Invalid Credentials");
+	
+	return "login";
+	
 }	
 
 @RequestMapping("login")
