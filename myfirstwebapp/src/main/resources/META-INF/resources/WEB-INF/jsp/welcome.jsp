@@ -9,6 +9,8 @@
     <div class="container">
 	<h1>Welcome ${name}</h1>
     <div><a href="todo-list">Manage</a> your todos</div>
+    	<a href="todo-add" class="btn btn-success"> Add todo</a>
+    
    </div>
   
 

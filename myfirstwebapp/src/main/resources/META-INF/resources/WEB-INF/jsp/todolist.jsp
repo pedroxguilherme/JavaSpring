@@ -49,7 +49,9 @@
 	</c:forEach>
 	</tbody>
 	</table>
+	<a href="todo-add" class="btn btn-success"> Add todo</a>
 	</div>
+	
 
 
 
