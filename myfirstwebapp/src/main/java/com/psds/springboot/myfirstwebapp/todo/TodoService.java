@@ -3,6 +3,7 @@ package com.psds.springboot.myfirstwebapp.todo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -36,7 +37,12 @@ public void addTodo(String username, String Descripiton, LocalDate targetDate, b
 	todos.add(todo);
 	
 }
-
+public void deleteById(int id) {
+	
+	Predicate<? super Todo> predicate = todo -> todo.getId() == id;
+	todos.removeIf(predicate );
+	
+}
 
 
 

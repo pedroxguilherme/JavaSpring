@@ -70,6 +70,18 @@ if(result.hasErrors())	{
 	
 }
 	
+@RequestMapping("todo-delete")
+public String DeleteTodo(@RequestParam int id) {
+    todoService.deleteById(id);
+	
+	
+	return "redirect:todo-list";
+}
+
+
+
+
+
 
 
 
