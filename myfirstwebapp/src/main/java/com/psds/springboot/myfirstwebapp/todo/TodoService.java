@@ -8,6 +8,8 @@ import java.util.function.Predicate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import jakarta.validation.Valid;
+
 @SessionAttributes("name")
 @Service
 public class TodoService {
@@ -43,6 +45,20 @@ public void deleteById(int id) {
 	todos.removeIf(predicate );
 	
 }
+public Todo findById(int id) {
+	Predicate<? super Todo> predicate = todo -> todo.getId() == id;
+	Todo todo = todos.stream().filter(predicate).findFirst().get();
+	return todo;
+}
+public void updateTodo(@Valid Todo todo) {
+	deleteById(todo.getId());
+	todos.add(todo);
+	
+	
+	
+	
+}
+
 
 
 

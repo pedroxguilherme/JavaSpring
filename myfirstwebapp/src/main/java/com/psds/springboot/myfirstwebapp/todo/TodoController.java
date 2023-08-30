@@ -80,6 +80,32 @@ public String DeleteTodo(@RequestParam int id) {
 
 
 
+@RequestMapping(value="todo-update", method=RequestMethod.GET)
+public String UpdateTodoGet(@RequestParam int id, ModelMap model) {
+   
+	Todo todo = todoService.findById(id);
+	model.addAttribute("todo",todo);
+	return "todoadd";
+}
+
+@RequestMapping(value="todo-update", method=RequestMethod.POST )
+public String updateTodoPost(ModelMap model, @Valid Todo todo, BindingResult result) {
+String username =(String) model.get("name");
+	
+todoService.updateTodo(todo); 
+if(result.hasErrors())	{
+	
+	return "todoadd";
+}
+	
+	 
+	  	  
+	  	 
+	  return "redirect:todo-list";
+	
+}
+
+
 
 
 
