@@ -57,7 +57,7 @@ public String showNewTodoPage(ModelMap model ) {
 public String todoaddpost(ModelMap model, @Valid Todo todo, BindingResult result) {
 String username =(String) model.get("name");
 	
-todoService.addTodo(username, todo.getDescription(), LocalDate.now(), false);  
+todoService.addTodo(username, todo.getDescription(), todo.getTargetDate(), false);  
 if(result.hasErrors())	{
 	
 	return "todoadd";

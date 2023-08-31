@@ -24,7 +24,7 @@
 	
 	<tr>
 	
-	<th>Id</th>
+	
 	<th>Description</th>
 	<th>TargetDate</th>
 	<th>Is Done?</th>
@@ -38,7 +38,6 @@
 	
 	<tr>
 	
-	<td>${todo.id}</td>
 	<td>${todo.description}</td>
 	<td>${todo.targetDate}</td>
 	<td>${todo.done}</td>
