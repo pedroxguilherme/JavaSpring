@@ -19,8 +19,8 @@ private static int counttodo = 0;
 
 static {
 	
-	todos.add(new Todo(counttodo++, "psds20", "Java", LocalDate.now(), true));
-	todos.add(new Todo(counttodo++, "psds20", "php", LocalDate.now().plusYears(2), false));
+	todos.add(new Todo(counttodo++, "psds", "Java", LocalDate.now(), true));
+	todos.add(new Todo(counttodo++, "psds", "php", LocalDate.now().plusYears(2), false));
 	
 	
 	
@@ -29,9 +29,9 @@ static {
 
 
 public List<Todo> findByUsername(String username){
-	
-	return todos;
-	
+	Predicate<? super Todo> predicate = 
+			todo -> todo.getUsername().equalsIgnoreCase(username);
+	return todos.stream().filter(predicate).toList();
 	
 }
 public void addTodo(String username, String Descripiton, LocalDate targetDate, boolean done){

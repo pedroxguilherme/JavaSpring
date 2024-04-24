@@ -9,10 +9,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jakarta.validation.Valid;
 
 @Controller
+@SessionAttributes("name")
 public class TodoController {
 	
 private TodoService todoService;	
@@ -30,8 +32,8 @@ public TodoController(TodoService todoService) {
 
 @RequestMapping("todo-list")
 public String goTodoList(ModelMap model) {
-	
-	  List<Todo> todos =  todoService.findByUsername("psds");
+	  String username =getLoggedinUsername(model);
+	  List<Todo> todos =  todoService.findByUsername(username);
 
 	  model.addAttribute("todos", todos);
 	  
@@ -43,7 +45,7 @@ public String goTodoList(ModelMap model) {
 @RequestMapping(value="todo-add", method=RequestMethod.GET )
 public String showNewTodoPage(ModelMap model ) {
 
-	String username =(String) model.get("name");
+	String username =getLoggedinUsername(model);
 	
 	Todo todo = new Todo(0 ,username,"", LocalDate.now().plusYears(1), false);  
 	model.put("todo", todo);
@@ -53,9 +55,17 @@ public String showNewTodoPage(ModelMap model ) {
 	
 }
 
+
+
+
+
+private String getLoggedinUsername(ModelMap model) {
+	return (String) model.get("name");
+}
+
 @RequestMapping(value="todo-add", method=RequestMethod.POST )
 public String todoaddpost(ModelMap model, @Valid Todo todo, BindingResult result) {
-String username =(String) model.get("name");
+String username =getLoggedinUsername(model);
 	
 todoService.addTodo(username, todo.getDescription(), todo.getTargetDate(), false);  
 if(result.hasErrors())	{
@@ -90,7 +100,7 @@ public String UpdateTodoGet(@RequestParam int id, ModelMap model) {
 
 @RequestMapping(value="todo-update", method=RequestMethod.POST )
 public String updateTodoPost(ModelMap model, @Valid Todo todo, BindingResult result) {
-String username =(String) model.get("name");
+String username =getLoggedinUsername(model);
 	
 todoService.updateTodo(todo); 
 if(result.hasErrors())	{

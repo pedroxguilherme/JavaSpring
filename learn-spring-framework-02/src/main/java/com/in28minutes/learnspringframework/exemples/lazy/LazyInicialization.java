@@ -56,8 +56,8 @@ public class LazyInicialization {
 	try(var context = new AnnotationConfigApplicationContext(LazyInicialization.class)){
 		
 		
-		
-		context.getBean(ClassB.class);
+		System.out.println(
+				context.getBean(ClassB.class));
 		
 		
 		
