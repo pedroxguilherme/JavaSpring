@@ -36,12 +36,18 @@ public List<User> FindAll(){
 	
 	return users;
 }
-public User FindbyID(int id){
+public User findByID(int id){
 	
 	Predicate<? super User> predicate = user -> user.getId().equals(id);
 	return users.stream().filter(predicate).findFirst().orElse(null);
 }
 
+public void deleteByID(int id){
+	
+	Predicate<? super User> predicate = user -> user.getId().equals(id);
+	users.removeIf(predicate);
+	
+}
 
 
 	
